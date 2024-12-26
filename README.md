@@ -1,11 +1,11 @@
 Portal Berita berbasis Laravel yang mendukung multi-user dengan fitur manajemen berita, dan kategori.
 
-Fitur
-Manajemen Berita
-Sistem Pendaftaran dan Login
-Komentar oleh Pengguna Terdaftar
-Filter dan Pencarian Berita
-Dashboard Admin
+Fitur:
+Manajemen Berita,
+Sistem Pendaftaran dan Login,
+Komentar oleh Pengguna Terdaftar,
+Filter dan Pencarian Berita,
+Dashboard Admin,
 Dashboard User
 
 Prasyarat
