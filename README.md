@@ -21,7 +21,7 @@ Ikuti langkah-langkah berikut untuk menginstal proyek ini:
 
 Clone Repository
 
-git clone https://github.com/username/nama-proyek.git
+git clone https://github.com/muhamadandy/News-Portal.git
 
 cd nama-proyek
 
