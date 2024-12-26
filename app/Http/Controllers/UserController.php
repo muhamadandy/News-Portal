@@ -8,20 +8,22 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function index(Request $request)
-{
-    // Ambil kata kunci dari input pencarian
-    $search = $request->input('search');
+    {
+        // Ambil kata kunci dari input pencarian
+        $search = $request->input('search');
 
-    // Query pengguna dengan pencarian
-    $users = User::where('name', 'like', "%{$search}%")
-                 ->orWhere('email', 'like', "%{$search}%")
-                 ->paginate(10);
+        // Query pengguna dengan pencarian, diurutkan dari yang terbaru
+        $users = User::where('name', 'like', "%{$search}%")
+                     ->orWhere('email', 'like', "%{$search}%")
+                     ->orderBy('created_at', 'desc') // Urutkan berdasarkan created_at dari yang terbaru
+                     ->paginate(10);
 
-    // Memastikan query search ikut dalam pagination links
-    $users->appends(['search' => $search]);
+        // Memastikan query search ikut dalam pagination links
+        $users->appends(['search' => $search]);
 
-    return view('admin.users.index', compact('users', 'search'));
-}
+        return view('admin.users.index', compact('users', 'search'));
+    }
+
 
 
 

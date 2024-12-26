@@ -28,7 +28,7 @@
             <div class="mb-4">
                 <label for="body" class="block text-gray-700 font-semibold mb-2">Body</label>
                 <textarea id="body" name="body" rows="6" required
-                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 @error('body') border-red-500 @enderror">{{ old('body', $news->body) }}</textarea>
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 @error('body') border-red-500 @enderror">{{$news->body}}</textarea>
 
                 @error('body')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
@@ -80,4 +80,21 @@
             </div>
         </form>
     </div>
+
+       <!-- CKEditor Initialization -->
+       <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
+       <script>
+           CKEDITOR.replace('body', {
+       toolbar: [
+           { name: 'document', items: ['Source', '-', 'Preview'] },
+           { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo'] },
+           { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline'] },
+           { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'] },
+           { name: 'insert', items: ['Image', 'Link', 'Unlink'] },
+           { name: 'tools', items: ['Maximize'] }
+       ],
+       height: 300
+   });
+
+       </script>
 </x-dashboard-layout>

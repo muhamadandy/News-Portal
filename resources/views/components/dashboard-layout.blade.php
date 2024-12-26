@@ -13,7 +13,7 @@
 <body>
     <div class="flex min-h-screen">
         {{-- Sidebar --}}
-        <aside class="w-64 bg-white shadow-md hidden md:block">
+        <aside class="w-64 bg-white shadow-md  md:block">
             <div class="p-6">
                 <!-- Logo -->
                 <a href="/news" class="flex items-center space-x-2 mb-6">
@@ -23,19 +23,19 @@
 
                 <!-- Navigation Links -->
                 <nav class="space-y-4">
-                    <x-sidebar-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" text="Dashboard" />
-                    <x-sidebar-link href="{{route('profile.edit')}}" :active="request()->routeIs('profile')" text="Profile" />
+                    <x-sidebar-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" text="Dasbor" />
+                    <x-sidebar-link href="{{route('profile.edit')}}" :active="request()->routeIs('profile')" text="Profil" />
                         @if (Auth::check() && Auth::user()->role === 'admin')
-                            <x-sidebar-link href="{{ route('users.index') }}" :active="request()->routeIs('users')" text="Users" />
-                            <x-sidebar-link href="{{route('admin.news.index')}}" :active="request()->routeIs('news.*')" text="News" />
-                            <x-sidebar-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories')" text="Categories" />
+                            <x-sidebar-link href="{{ route('users.index') }}" :active="request()->routeIs('users')" text="Pengguna" />
+                            <x-sidebar-link href="{{route('admin.news.index')}}" :active="request()->routeIs('news.*')" text="Berita" />
+                            <x-sidebar-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories')" text="Kategori" />
                         @else
-                            <x-sidebar-link href="{{route('dashboard.news')}}" :active="request()->routeIs('news.*')" text="News" />
+                            <x-sidebar-link href="{{route('dashboard.news')}}" :active="request()->routeIs('news.*')" text="Berita" />
                         @endif
                     <form method="POST" action="{{route('logout')}}">
                         @csrf
                         <button type="submit" class="w-full text-left text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-md">
-                            Logout
+                            Keluar
                         </button>
                     </form>
                 </nav>
@@ -47,5 +47,9 @@
         {{ $slot }}
     </main>
     </div>
+
+    <script src="https://cdn.ckeditor.com/4.25.0-lts/standard/ckeditor.js"></script>
+
+
 </body>
 </html>

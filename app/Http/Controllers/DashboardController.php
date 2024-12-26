@@ -8,9 +8,17 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function index(){
-        return view('user.dashboard');
+    public function index()
+    {
+        // Mengambil ID pengguna yang sedang login
+        $userId = Auth::id();
+
+        // Menghitung jumlah berita yang dimiliki oleh pengguna tersebut
+        $totalNews = News::where('user_id', $userId)->count();
+
+        return view('user.dashboard', compact('totalNews'));
     }
+
 
     public function userNews(Request $request)
 {

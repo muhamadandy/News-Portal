@@ -20,11 +20,11 @@
             <table class="min-w-full bg-white shadow-md rounded-lg mb-4">
                 <thead>
                     <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                        <th class="py-3 px-6 text-left">Title</th>
-                        <th class="py-3 px-6 text-left">Body</th>
-                        <th class="py-3 px-6 text-left">Image</th>
+                        <th class="py-3 px-6 text-left">Judul</th>
+                        <th class="py-3 px-6 text-left">Konten</th>
+                        <th class="py-3 px-6 text-left">Gambar</th>
                         <th class="py-3 px-6 text-center">Status</th>
-                        <th class="py-3 px-6 text-center">Actions</th>
+                        <th class="py-3 px-6 text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-600 text-sm font-light mb-4">
@@ -70,7 +70,7 @@
                                     <form action="{{ route('news.destroy', $article->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this news?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-red-600 hover:text-red-800">Delete</button>
+                                        <button type="submit" class="text-red-600 hover:text-red-800">Hapus</button>
                                     </form>
                                 </div>
                             </td>

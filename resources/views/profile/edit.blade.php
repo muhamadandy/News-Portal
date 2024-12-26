@@ -1,7 +1,7 @@
 {{-- resources/views/profile/edit.blade.php --}}
 <x-dashboard-layout>
     <div class="p-8">
-        <h1 class="text-3xl font-bold mb-4">Update Profile</h1>
+        <h1 class="text-3xl font-bold mb-4">Perbarui Profil</h1>
 
         @if(session('success'))
             <div class="mb-4 text-green-500">
@@ -15,7 +15,7 @@
 
             {{-- Name --}}
             <div class="mb-4">
-                <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                <label for="name" class="block text-gray-700 font-semibold mb-2">Nama</label>
                 <input id="name" type="text" name="name" value="{{ old('name', $user->name) }}" required
                     class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 @error('name') border-red-500 @enderror">
 
@@ -27,7 +27,7 @@
 
             {{-- Password --}}
             <div class="mb-4">
-                <label for="password" class="block text-gray-700 font-semibold mb-2">Password (leave blank to keep current password)</label>
+                <label for="password" class="block text-gray-700 font-semibold mb-2">Kata sandi</label>
                 <input id="password" type="password" name="password"
                     class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 @error('password') border-red-500 @enderror">
 
@@ -38,7 +38,7 @@
 
             {{-- Confirm Password --}}
             <div class="mb-4">
-                <label for="password_confirmation" class="block text-gray-700 font-semibold mb-2">Confirm Password</label>
+                <label for="password_confirmation" class="block text-gray-700 font-semibold mb-2">Konfirmasi kata sandi</label>
                 <input id="password_confirmation" type="password" name="password_confirmation"
                     class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
@@ -46,7 +46,7 @@
             {{-- Tombol Submit --}}
             <div class="mt-6">
                 <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300">
-                    Update Profile
+                    Perbarui
                 </button>
             </div>
         </form>

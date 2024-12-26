@@ -32,7 +32,7 @@ class NewsController extends Controller
             });
         }
 
-        $news = $query->get();
+        $news = $query->paginate(10);
 
         return view('news.index', compact('news', 'categories'));
     }
@@ -145,8 +145,8 @@ class NewsController extends Controller
 
     public function destroy(News $news)
     {
-        // Pastikan pengguna hanya bisa menghapus berita mereka sendiri
-        if ($news->user_id !== Auth::id()) {
+        // Periksa apakah pengguna adalah admin atau pemilik berita
+        if (Auth::user()->role !== 'admin' && $news->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -165,4 +165,5 @@ class NewsController extends Controller
 
         return redirect()->route('dashboard.news')->with('success', 'News deleted successfully.');
     }
+
 }

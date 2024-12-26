@@ -22,7 +22,7 @@
             <thead>
                 <tr class="bg-gray-200">
                     <th class="w-1/4 py-2">Nama</th>
-                    <th class="w-1/4 py-2">Email</th>
+                    <th class="w-1/4 py-2">Alamat Email</th>
                     <th class="w-1/4 py-2">Peran</th>
                     <th class="w-1/4 py-2">Aksi</th>
                 </tr>
@@ -34,7 +34,7 @@
                         <td class="py-2 px-4">{{ $user->email }}</td>
                         <td class="py-2 px-4">{{ $user->role }}</td>
                         <td class="py-2 px-4 flex space-x-4">
-                            <a href="{{ route('users.edit', $user->id) }}" class="text-blue-500 hover:underline">Edit</a>
+                            <a href="{{ route('users.edit', $user->id) }}" class="text-blue-500 hover:underline">Ubah</a>
                             <form action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus user ini?');">
                                 @csrf
                                 @method('DELETE')

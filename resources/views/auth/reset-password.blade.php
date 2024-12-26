@@ -1,23 +1,24 @@
-{{-- resources/views/auth/login.blade.php --}}
 <x-layout>
     <div class="bg-white p-8 rounded-lg shadow-lg max-w-md mx-auto my-12">
-        <h2 class="text-2xl font-bold text-center mb-6">Masuk ke akun</h2>
+        <h2 class="text-2xl font-bold text-center mb-6">Kata sandi Baru</h2>
 
-        @if (session('status'))
-    <div class="alert alert-success">
-        {{ session('status') }}
-    </div>
+        @if(session('error'))
+<div class="bg-red-500 text-white p-4 rounded">
+    {{ session('error') }}
+</div>
+@endif
+@if(session('success'))
+<div class="bg-green-500 text-white p-4 rounded">
+    {{ session('success') }}
+</div>
 @endif
 
-@if ($errors->has('email'))
-    <div class="alert alert-danger">
-        {{ $errors->first('email') }}
-    </div>
-@endif
 
-        {{-- Formulir Login --}}
-        <form method="POST" action="{{ route('login') }}">
+        {{-- Formulir pendaftaran --}}
+        <form method="POST" action="{{route('password.update')}}">
             @csrf
+            <input type="hidden" name="token" value="{{$token}}">
+
 
             {{-- Email --}}
             <div class="mb-4">
@@ -41,33 +42,19 @@
                 @enderror
             </div>
 
-            {{-- Remember Me --}}
-            <div class="mb-4 flex items-center">
-                <input type="checkbox" name="remember" id="remember" class="mr-2">
-                <label for="remember" class="text-gray-700">Ingat saya</label>
+            {{-- Konfirmasi Password --}}
+            <div class="mb-4">
+                <label for="password_confirmation" class="block text-gray-700 font-semibold mb-2">Konfirmasi kata sandi</label>
+                <input id="password_confirmation" type="password" name="password_confirmation" required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
 
-            {{-- Tombol Login --}}
+            {{-- Tombol Register --}}
             <div class="mt-6">
                 <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300">
-                    Masuk
+                    Simpan
                 </button>
             </div>
         </form>
-
-        {{-- Lupa Password --}}
-        <div class="mt-4 text-center">
-            <p class="text-sm text-gray-600">
-                <a href="{{route('password.request')}}" class="text-blue-500 hover:underline">Lupa kata sandi?</a>
-            </p>
-        </div>
-
-        {{-- Belum punya akun? --}}
-        <div class="mt-4 text-center">
-            <p class="text-sm text-gray-600">
-                Belum punya akun?
-                <a href="{{ route('register') }}" class="text-blue-500 hover:underline">Daftar</a>
-            </p>
-        </div>
     </div>
 </x-layout>

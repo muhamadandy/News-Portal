@@ -51,7 +51,7 @@
 
             {{-- Konten --}}
             <div class="prose max-w-none">
-                {!! nl2br(e($news->body)) !!}
+                {!! $news->body !!}
             </div>
         </div>
 

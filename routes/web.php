@@ -8,6 +8,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\UserController;
 
 Route::view('/','home')->name('home');
@@ -21,6 +22,14 @@ Route::middleware('guest')->group(function(){
 
     Route::view('/login','auth.login');
     Route::post('/login',[AuthController::class,'login'])->name('login');
+
+    Route::view('/forgot-password','auth.forget-password')->name('password.request');
+
+    Route::post('/forgot-password', [ResetPasswordController::class,'passwordEmail']);
+
+    Route::get('/reset-password/{token}', [ResetPasswordController::class,'passwordReset'])->name('password.reset');
+
+    Route::post('/reset-password', [ResetPasswordController::class,'passwordUpdate'])->name('password.update');
 });
 
 Route::middleware('auth')->group(function(){

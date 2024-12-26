@@ -8,9 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    public function dashboard(){
-        return view('admin.dashboard');
+    public function dashboard()
+    {
+        $totalNews = News::where('status', 'published')->count();
+
+
+        return view('admin.dashboard', compact('totalNews'));
     }
+
 
     public function news(Request $request)
     {

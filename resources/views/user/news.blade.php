@@ -5,17 +5,17 @@
     </div>
 
     @if($news->isEmpty())
-        <p>You have not created any news yet.</p>
+        <p>Kamu belum membuat berita</p>
     @else
         <div class="overflow-x-auto">
             <table class="min-w-full bg-white shadow-md rounded-lg">
                 <thead>
                     <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                        <th class="py-3 px-6 text-left">Title</th>
-                        <th class="py-3 px-6 text-left">Body</th>
-                        <th class="py-3 px-6 text-left">Image</th>
+                        <th class="py-3 px-6 text-left">Judul</th>
+                        <th class="py-3 px-6 text-left">Konten</th>
+                        <th class="py-3 px-6 text-left">Gambar</th>
                         <th class="py-3 px-6 text-center">Status</th>
-                        <th class="py-3 px-6 text-center">Actions</th>
+                        <th class="py-3 px-6 text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-600 text-sm font-light">
@@ -36,7 +36,7 @@
                                 @if($article->image)
                                     <img src="{{ $article->image }}" alt="News Image" class="h-12 w-12 rounded-lg object-cover">
                                 @else
-                                    <span>No Image</span>
+                                    <span>Tidak ada gambar</span>
                                 @endif
                             </td>
 
@@ -52,14 +52,14 @@
                                 <div class="flex item-center justify-center space-x-4">
                                     <!-- Edit Button -->
                                     <a href="{{route('news.edit',$article->id)}}" class="text-blue-600 hover:text-blue-800">
-                                        Edit
+                                        Ubah
                                     </a>
 
                                     <!-- Delete Button -->
                                     <form action="{{ route('news.destroy', $article->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this news?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-red-600 hover:text-red-800">Delete</button>
+                                        <button type="submit" class="text-red-600 hover:text-red-800">Hapus</button>
                                     </form>
                                 </div>
                             </td>
