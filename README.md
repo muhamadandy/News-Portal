@@ -47,6 +47,9 @@ php artisan key:generate
 Migrasi Database Jalankan migrasi untuk membuat tabel di database:
 php artisan migrate
 
+Membuat admin user dengan seeder:
+php artisan db:seed
+
 Build Frontend Assets jalankan:
 npm run dev
 
