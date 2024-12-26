@@ -62,4 +62,6 @@ untuk masuk ke admin dashboard:
 email:admin@gmail.com
 password:admin1234
 
+untuk mengetesnya silahkan daftar user baru dan coba masuk ke dashboard user lalu buat berita anda sendiri
+
 
