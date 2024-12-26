@@ -58,5 +58,8 @@ npm run dev
 Jalankan Server Mulai server Laravel menggunakan:
 php artisan serve
 
+untuk masuk ke admin dashboard:
+email:admin@gmail.com
+password:admin1234
 
 
