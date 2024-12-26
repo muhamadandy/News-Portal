@@ -35,6 +35,8 @@ Konfigurasi Environment Salin file .env.example menjadi .env dan sesuaikan denga
 
 cp .env.example .env
 
+buka proyek di Visual Studio Code
+buka file .env
 Update variabel berikut di file .env:
 
 DB_DATABASE=nama_database
